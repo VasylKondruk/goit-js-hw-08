@@ -28,9 +28,20 @@ getLocalData();
 
 feedbackForm.addEventListener('submit', submitData);
 
-function submitData(e) {
-  e.preventDefault();
+function submitData(evt) {
+  evt.preventDefault();
+
+  const formElements = evt.target.elements;
+  const email = formElements.email.value;
+  const message = formElements.message.value;
+
+  if (email === '' || message === '') {
+    alert('Будь ласка заповніть поля');
+    return;
+  }
+
   this.reset();
+
   console.log(localStorage.getItem(LOCALSTORAGE_KEY));
   localStorage.removeItem('feedback-form-state');
 }
