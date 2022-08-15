@@ -42,6 +42,6 @@ function submitData(evt) {
 
   this.reset();
 
-  console.log(localStorage.getItem(LOCALSTORAGE_KEY));
+  console.log(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
   localStorage.removeItem('feedback-form-state');
 }
